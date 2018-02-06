@@ -12,34 +12,20 @@ app.use(methodOverride("_method"));
 app.set("view engine", "mustache");
 app.set("views", "./views");
 
+const user = require("./routes/user");
+
 mongoose.connect("mongodb://localhost/snippets");
 let db = mongoose.connection;
 db.once("open", function() {
   console.log("connected");
 });
 
-app.get("/", (req, res) => {
-  User.find({}, (err, users) => {
-    if (err) {
-      res.send("err");
-    } else {
-      res.render("homepage", { users: users });
-    }
-  });
-});
+app.use("/", user);
+
+app.use("/:id", user);
 
 app.get("/register", (req, res) => {
   res.render("register");
-});
-
-app.get("/:id", (req, res) => {
-  User.findById(req.params.id, (err, user) => {
-    if (err) {
-      res.send("An error has occured getting the user");
-    } else {
-      res.render("showUser", { user: user });
-    }
-  });
 });
 
 app.get("/:id/edit", (req, res) => {
