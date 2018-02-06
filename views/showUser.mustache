@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+    <div>
+    {{#user}}
+        <li>{{email}}</li>
+        <li>{{firstname}}</li>
+        <li>{{lastname}}</li>
+        <li>{{age}}</li>
+        <li>{{city}}</li>
+        <li>{{state}}</li>
+        <a href="/{{_id}}/edit">Edit</a>
+    {{/user}}
+    </div>
+</body>
+</html>

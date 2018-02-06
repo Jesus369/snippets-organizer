@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+    <div>
+    {{#user}}
+    <form action="/{{_id}}/edit?_method=PUT" method="POST>
+        <input type="text" value="{{email}}" />
+        <input type="text" value="{{firstname}}"/>
+        <input type="text" value="{{lastname}}"/>
+        <input type="text" value="{{age}}"/>
+        <input type="text" value="{{city}}"/>
+        <input type="text" value="{{state}}"/>
+        <button>Submit</button>
+    </form>
+    {{/user}}
+    </div>
+</body>
+</html>

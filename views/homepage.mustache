@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+    <div>
+    <a href="/register">Register</a>
+    </div>
+    User's
+    click on the user for more options!
+    {{#users}}
+    <div>
+        <li><a href="/{{_id}}">{{firstname}}</a></li>
+    </div>
+    {{/users}}
+
+</body>
+</html>
