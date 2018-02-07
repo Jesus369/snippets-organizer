@@ -7,12 +7,14 @@ const app = express();
 const User = require("./schema/userSchema");
 
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use("/public", express.static("public"));
 app.engine("mustache", mustacheExpress());
 app.use(methodOverride("_method"));
 app.set("view engine", "mustache");
 app.set("views", "./views");
 
 const user = require("./routes/user");
+const snippet = require("./routes/snippet");
 
 mongoose.connect("mongodb://localhost/snippets");
 let db = mongoose.connection;
@@ -22,15 +24,7 @@ db.once("open", function() {
 
 app.use("/", user);
 
-app.use("/:id", user);
-
-app.use("/register", user);
-
-app.use("/:id/edit", user);
-
-app.use("/:id/createSnippet", user);
-
-app.use("/:id/snippets", user);
+app.use("/snippet", snippet);
 
 app.listen(3000, () => {
   console.log("connected!");
