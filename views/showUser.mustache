@@ -13,6 +13,9 @@
         <li>{{city}}</li>
         <li>{{state}}</li>
         <a href="/{{_id}}/edit">Edit</a>
+         <form action="/{{_id}}?_method=DELETE" method="POST">
+        <button>Delete</button>
+    </form>
     {{/user}}
     </div>
 </body>
