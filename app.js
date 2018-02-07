@@ -6,7 +6,7 @@ const express = require("express");
 const app = express();
 const User = require("./schema/userSchema");
 
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.engine("mustache", mustacheExpress());
 app.use(methodOverride("_method"));
 app.set("view engine", "mustache");
@@ -24,33 +24,9 @@ app.use("/", user);
 
 app.use("/:id", user);
 
-app.get("/register", (req, res) => {
-  res.render("register");
-});
+app.use("/register", user);
 
-app.get("/:id/edit", (req, res) => {
-  User.findById(req.params.id, (err, user) => {
-    if (err) {
-      res.send("An error occure loading the 'edit' page");
-    } else {
-      res.render("editUser", { user: user });
-    }
-  });
-});
-
-app.post("/register", (req, res) => {
-  var user = new User();
-  (user.email = req.body.email), (user.password =
-    req.body.password), (user.firstname = req.body.firstname), (user.lastname =
-    req.body.lastname), (user.age = req.body.age), (user.city =
-    req.body.city), (user.state = req.body.state), user.save((err, newUser) => {
-    if (err) {
-      res.send("An error has occured");
-    } else {
-      res.redirect("/");
-    }
-  });
-});
+app.use("/:id/edit", user);
 
 app.listen(3000, () => {
   console.log("connected!");
