@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+    {{#user}}
+        {{firstname}}</br>
+   Snippet Form!
+   <form action="/{{id}}/snippets" method="POST">
+   <input type="text" name="title" placeholder="Project Title" />
+    <textarea name="html" placeholder="Insert HTML"></textarea>
+    <textarea name="css" placeholder="Insert CSS"></textarea>
+    <textarea name="script" placeholder="Insert Script"></textarea>    
+    <button>Create</button>
+   </form>
+   {{/user}}
+</body>
+</html>
