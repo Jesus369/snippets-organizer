@@ -28,6 +28,10 @@ app.use("/register", user);
 
 app.use("/:id/edit", user);
 
+app.use("/:id/createSnippet", user);
+
+app.use("/:id/snippets", user);
+
 app.listen(3000, () => {
   console.log("connected!");
 });
