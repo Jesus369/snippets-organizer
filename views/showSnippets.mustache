@@ -1,12 +1,30 @@
+
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+    <title></title>
 </head>
 <body>
-   Snippets List!
-   {{#user}}
-   <li>{{snippets}}</li>
-   {{/user}}
+
+    {{#snippet}}
+    Snippet
+    <a href="/snippet/{{_id}}/edit">Edit Snippet</a></br>
+    {{title}}
+    <code>
+        <li>{{html}}</li>
+    </code>
+    <code>
+        <li>{{css}}</li>
+    </code>
+    <code>
+        <li>{{script}}</li>
+    </code>
+
+    <form action="/snippet/{{_id}}?_method=DELETE" method="POST">
+        <button>Delete Snippet</button>
+    </form>
+    {{/snippet}}
+
 </body>
+
 </html>
