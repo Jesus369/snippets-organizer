@@ -2,24 +2,50 @@ const User = require("../schema/userSchema");
 const Snippet = require("../schema/snippetSchema");
 
 module.exports = {
-  newUserForm: async (req, res, next) => {
+  registerForm: async (req, res, next) => {
     res.render("register");
   },
 
-  createUser: async (req, res, next) => {
+  registerUser: async (req, res, next) => {
     const newUser = new User(req.body);
     const user = await newUser.save();
     res.redirect("/");
   },
 
-  getUsers: async (req, res, next) => {
-    const users = await User.find({});
-    res.render("homepage", { users: users });
+  loginForm: async (req, res, next) => {
+    res.render("login");
+  },
+
+  loginUser: async (req, res, next) => {
+    const user = await User.findOne({
+      $or: [{ username: req.body.username }, { password: req.body.password }]
+    });
+    if ((user.password = req.body.password)) {
+      req.session.username = req.body.username;
+      req.session.userId = user.id;
+      req.session.authenticated = true;
+      res.redirect("/");
+    } else {
+      res.send("An error occured");
+    }
+  },
+
+  getAllSnippets: async (req, res, next) => {
+    const snippets = await Snippet.find({});
+    res.render("homepage", {
+      snippets: snippets,
+      username: req.session.username,
+      userId: req.session.userId
+    });
   },
 
   getUser: async (req, res, next) => {
-    const user = await User.findById(req.params.id);
-    res.render("showUser", { user: user });
+    const user = await User.findById(req.params.id).populate("snippets");
+    if (req.session.username == user.username) {
+      res.render("showUser", { user: user });
+    } else {
+      res.send("You do not have permission to view this person!");
+    }
   },
 
   editUserPage: async (req, res, next) => {
@@ -33,20 +59,24 @@ module.exports = {
     res.redirect("/");
   },
 
+  userDelete: async (req, res, next) => {
+    const user = await User.findById(req.params.id);
+    res.render("cancelPage", { user: user });
+  },
+
   deleteUser: async (req, res, next) => {
     const user = await User.findByIdAndRemove(req.params.id);
     res.redirect("/");
   },
 
+  userSnippets: async (req, res, next) => {
+    const user = await User.findById(req.params.id).populate("snippets");
+    res.render("userSnippets", { user: user });
+  },
+
   createSnippetForm: async (req, res, next) => {
     const user = await User.findById(req.params.id);
     res.render("createSnippet", { user: user });
-  },
-
-  getUserSnippet: async (req, res, next) => {
-    /*Find the user by the Id matching params and include the snippets array*/
-    const user = await User.findById(req.params.id).populate("snippets");
-    res.json({ user: user });
   },
 
   createUserSnippet: async (req, res, next) => {
@@ -62,6 +92,6 @@ module.exports = {
     user.snippets.push(newSnippet);
     /*Save the user*/
     await user.save();
-    res.json(newSnippet);
+    res.redirect("/" + req.params.id);
   }
 };
