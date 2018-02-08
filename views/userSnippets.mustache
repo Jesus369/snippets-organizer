@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+    <link rel="stylesheet" type="text/css" href="/public/styles.css"/>
+</head>
+<body>
+    <div class="header">  
+        <span class="site_title"><a href="/">Snippet Organizer</a></span>
+    </div>
+
+    {{#user}}
+        <div class="snippets_listings">
+            {{#snippets}}
+                <li class="snippet_item"><a href="/snippet/{{_id}}/" class="snippet_title">{{title}}</a></li>
+            {{/snippets}}
+         </div>
+    {{/user}}
+
+</body>
+</html>

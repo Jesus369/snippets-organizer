@@ -2,17 +2,22 @@
 <html>
 <head>
 	<title></title>
+    <link rel="stylesheet" type="text/css" href="/public/styles.css"/>
 </head>
 <body>
+    <div class="header">  
+        <span class="site_title"><a href="/">Snippet Organizer</a></span>
+    </div>
+    
     <div>
     {{#user}}
-    <form action="/{{_id}}/edit?_method=PUT" method="POST>
-        <input type="text" value="{{email}}" />
-        <input type="text" value="{{firstname}}"/>
-        <input type="text" value="{{lastname}}"/>
-        <input type="text" value="{{age}}"/>
-        <input type="text" value="{{city}}"/>
-        <input type="text" value="{{state}}"/>
+    <form action="/{{_id}}?_method=PUT" method="POST">
+        <input type="text" name="email" value="{{email}}" />
+        <input type="text" name="firstname" value="{{firstname}}"/>
+        <input type="text" name="lastname" value="{{lastname}}"/>
+        <input type="text" name="age" value="{{age}}"/>
+        <input type="text" name="city" value="{{city}}"/>
+        <input type="text" name="state" value="{{state}}"/>
         <button>Submit</button>
     </form>
     {{/user}}

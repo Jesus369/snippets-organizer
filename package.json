@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
   },
   "author": "",
   "license": "ISC",
@@ -12,8 +13,11 @@
     "body-parser": "^1.18.2",
     "cors": "^2.8.4",
     "express": "^4.16.2",
+    "express-promise-router": "^3.0.1",
+    "express-session": "^1.15.6",
     "method-override": "^2.3.10",
     "mongoose": "^5.0.3",
-    "mustache-express": "^1.2.5"
+    "mustache-express": "^1.2.5",
+    "nodemon": "^1.14.12"
   }
 }

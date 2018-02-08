@@ -2,10 +2,16 @@
 <html>
 <head>
 	<title></title>
+    <link rel="stylesheet" type="text/css" href="/public/styles.css"/>
 </head>
 <body>
+    <div class="header">  
+        <span class="site_title"><a href="/">Snippet Organizer</a></span>
+    </div>
+    
     <form action="/register" method="POST">
         <input type="text" name="email" placeholder="Email" />
+        <input type="text" name="username" placeholder="Username" />
         <input type="text" name="password" placeholder="Password" />
         <input type="text" name="firstname" placeholder="First Name" />
         <input type="text" name="lastname" placeholder="Last Name" />

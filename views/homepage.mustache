@@ -2,18 +2,24 @@
 <html>
 <head>
 	<title></title>
+    <link rel="stylesheet" type="text/css" href="/public/styles.css"/>
 </head>
 <body>
-    <div>
-    <a href="/register">Register</a>
+    <div class="header">  
+        <span class="site_title"><a href="/">Snippet Organizer</a></span>
     </div>
-    User's
-    click on the user for more options!
-    {{#users}}
-    <div>
-        <li><a href="/{{_id}}">{{firstname}}</a></li>
+
+    <div class="process_user">
+        <a href="/register" class="enter_site">Register</a>
+        <a href="/login" class="enter_site">Login</a>
+        {{#userId}}<a href="/{{.}}">{{#username}}{{.}}{{/username}}</a>{{/userId}}
     </div>
-    {{/users}}
+    <div class="users_listings">
+    Click on a user to view their snippets!
+    {{#snippets}}
+        <li class="user"><a href="/snippet/{{_id}}/" class="snippet_title">{{title}}</a></li>
+    {{/snippets}}
+    </div>
 
 </body>
 </html>

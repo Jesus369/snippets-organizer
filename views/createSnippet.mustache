@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+    <link rel="stylesheet" type="text/css" href="/public/styles.css"/>
+</head>
+<body>
+    <div class="header">  
+        <span class="site_title"><a href="/">Snippet Organizer</a></span>
+    </div>
+    {{#user}}
+        {{firstname}}</br>
+   Snippet Form!
+   <form action="/{{id}}/createSnippet" method="POST" class="new_snippet_form">
+        <input type="text" name="title" placeholder="Project Title" />
+        <textarea name="html" placeholder="Insert HTML" class="code_text"></textarea>
+        <textarea name="css" placeholder="Insert CSS" class="code_text"></textarea>
+        <textarea name="script" placeholder="Insert Script" class="code_text"></textarea>    
+        <button>Create</button>
+   </form>
+   {{/user}}
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+    <link rel="stylesheet" type="text/css" href="/public/styles.css"/>
+</head>
+<body>
+    <div class="header">  
+        <span class="site_title"><a href="/">Snippet Organizer</a></span>
+    </div>
+
+    {{#user}}
+        <div class="user_delete">
+        Leaving us? Are you sure you want to delete your account?
+            <div class="button_request_container">
+                <form action="/{{_id}}" method="GET"><button class="action_button">Cancel</button></form>
+                <form action="/{{_id}}?_method=DELETE" method="POST">
+                    <button class="action_button">Delete</button>
+                </form>   
+            </div>
+        </div> 
+    {{/user}}
+    
+</body>
+</html>

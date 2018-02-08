@@ -1,0 +1,175 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+.header {
+  background-color: #c2ca95;
+  margin-bottom: 3em;
+  padding: 1.5em;
+}
+
+.site_title {
+  color: white;
+  font-family: "Comic Sans MS";
+  font-size: 1.3em;
+}
+
+.process_user {
+  margin: 0 auto 0 auto;
+  width: 95%;
+}
+
+.enter_site {
+  background-color: #d8e8d2;
+  border-radius: 5px;
+  padding: .5em;
+}
+
+.enter_site:active {
+  background-color: #b1c5aa;
+  text-decoration: underline;
+  text-decoration-color: #4d544b;
+}
+
+.users_listings {
+  border: 1px solid #babbb9;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  list-style-type: none;
+  margin: 2em auto 0 auto;
+  padding: 1.5em;
+  width: 90%;
+}
+
+.user {
+  border-bottom: 1px solid black;
+  margin-top: 1em;
+}
+
+/*Register page*/
+
+/*Login page*/
+.login_form {
+  background-color: #a07c7c;
+  border: 1px solid #503434;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto 0 auto;
+  align-items: center;
+  padding: 2em;
+  width: 30%;
+}
+
+.login_input {
+  margin-top: 2em;
+  outline: none;
+  width: 40%;
+}
+
+/*Show User Page*/
+.info_holder {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto 0 auto;
+  text-align: center;
+  width: 30%;
+}
+
+.showUser_links {
+  width: 95%;
+  margin: 0 auto 0 auto;
+}
+
+.user_info {
+  border: 1px solid #babbb9;
+  display: inline-block;
+  list-style-type: none;
+  margin: 2em 0 0 2em;
+  padding: 2em;
+}
+
+.nav_user {
+  text-decoration: underline;
+}
+
+.nav_user:hover {
+  color: red;
+  font-size: 1.05em;
+  text-decoration: underline;
+  text-decoration-color: #134800;
+}
+
+/*User's snippets page*/
+.snippets_listings {
+  border: 1px solid #babbb9;
+  list-style-type: none;
+  margin: 2em auto 0 auto;
+  padding: 1.5em;
+  width: 90%;
+}
+
+.snippet_item {
+  border-bottom: 1px solid #9f9d9d;
+  margin-top: 1em;
+}
+
+.snippet_title {
+  color: #888585;
+}
+
+.snippet_title:hover {
+  color: #2a2a2a;
+}
+
+/*Delete user page*/
+.user_delete {
+  background-color: #e5e7d7;
+  border-radius: 5px;
+  font-family: "Geneva";
+  margin: 0 auto 0 auto;
+  padding: 4em;
+  text-align: center;
+  width: 15%;
+}
+
+.button_request_container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 1em;
+}
+
+.action_button {
+  background-color: #efeded;
+  font-size: .8em;
+  margin-left: .5em;
+  margin-top: 2em;
+}
+
+.action_button:focus {
+  background-color: #efeded;
+  box-shadow: 0 0 .5px 1px #656464;
+  outline: none;
+}
+
+/*Create snippet page*/
+.new_snippet_form {
+  display: flex;
+  flex-direction: column;
+}
+
+.code_text {
+  margin-top: 2em;
+  width: 40%;
+  height: 40VH;
+  outline: none;
+}

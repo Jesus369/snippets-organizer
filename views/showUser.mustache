@@ -2,17 +2,27 @@
 <html>
 <head>
 	<title></title>
+    <link rel="stylesheet" type="text/css" href="/public/styles.css"/>
 </head>
 <body>
-    <div>
+    <div class="header">  
+        <span class="site_title"><a href="/">Snippet Organizer</a></span>
+    </div>
+    
+    <div class="info_holder">
     {{#user}}
+    <div class="user_info">
         <li>{{email}}</li>
-        <li>{{firstname}}</li>
-        <li>{{lastname}}</li>
-        <li>{{age}}</li>
-        <li>{{city}}</li>
-        <li>{{state}}</li>
-        <a href="/{{_id}}/edit">Edit</a>
+        <li>{{firstname}} {{lastname}}</li>
+        <li>Age: {{age}}</li>
+        <a href="/{{_id}}/edit" class="nav_user">Edit Profile</a>
+        <li><a href="/{{id}}/cancelaccount" class="nav_user">Cancel Account</a></li>
+    </div>
+
+    <div class="user_info">
+        <li><a href="/{{id}}/createSnippet" class="nav_user">New Snippet</a></li>
+        <li><a href="/{{id}}/snippets" class="nav_user">View Snippets</a></li>
+    </div>
     {{/user}}
     </div>
 </body>
