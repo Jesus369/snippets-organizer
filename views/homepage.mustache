@@ -6,17 +6,19 @@
 </head>
 <body>
     <div class="header">  
-        <span class="site_title">Snippet Organizer</span>
+        <span class="site_title"><a href="/">Snippet Organizer</a></span>
     </div>
-    <div class="register">
-        <a href="/register">Register a new user</a>
+
+    <div class="process_user">
+        <a href="/register" class="enter_site">Register</a>
+        <a href="/login" class="enter_site">Login</a>
+        {{#userId}}<a href="/{{.}}">{{#username}}{{.}}{{/username}}</a>{{/userId}}
     </div>
-    
     <div class="users_listings">
     Click on a user to view their snippets!
-    {{#users}}
-        <li class="user"><a href="/{{_id}}">{{firstname}}</a></li>
-    {{/users}}
+    {{#snippets}}
+        <li class="user"><a href="/snippet/{{_id}}/" class="snippet_title">{{title}}</a></li>
+    {{/snippets}}
     </div>
 
 </body>
