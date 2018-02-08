@@ -6,28 +6,23 @@
 </head>
 <body>
     <div class="header">  
-        <span class="site_title">Snippet Organizer</span>
+        <span class="site_title"><a href="/">Snippet Organizer</a></span>
     </div>
+    
+    <div class="info_holder">
     {{#user}}
-    <div class="showUser_links">
-        <a href="/{{id}}/createSnippet">Create a snippet for {{firstname}}</a></br>
-    </div>
     <div class="user_info">
         <li>{{email}}</li>
         <li>{{firstname}} {{lastname}}</li>
         <li>Age: {{age}}</li>
-        <a href="/{{_id}}/edit">Edit Profile</a>
+        <a href="/{{_id}}/edit" class="nav_user">Edit Profile</a>
+        <li><a href="/{{id}}/cancelaccount" class="nav_user">Cancel Account</a></li>
     </div>
 
-    <div class="snippets_listings">
-        {{#snippets}}
-            <li class="snippet_title"><a href="/snippet/{{_id}}/">{{title}}</a></li>
-        {{/snippets}}
+    <div class="user_info">
+        <li><a href="/{{id}}/createSnippet" class="nav_user">New Snippet</a></li>
+        <li><a href="/{{id}}/snippets" class="nav_user">View Snippets</a></li>
     </div>
-
-    <form action="/{{_id}}?_method=DELETE" method="POST">
-        <button>Delete</button>
-    </form>
     {{/user}}
     </div>
 </body>
